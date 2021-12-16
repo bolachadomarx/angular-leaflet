@@ -1,0 +1,56 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.logo-sunnit {
+  width: 140px;
+  margin-left: 0.5em;
+}
+
+.sidenav {
+  width: 250px;
+}
+
+.nav-caption {
+  margin-left: 10px;
+}
+
+.active-list-item {
+  border-left: 3px solid white;
+  box-sizing: border-box;
+}
+
+::ng-deep .mat-menu-content {
+  width: 220px;
+}
+
+.icon {
+  color: white;
+}
+
+.foreground {
+  backdrop-filter: saturate(150%) blur(10px);
+}
+
+.center {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+}
+.background {
+  opacity: 20%;
+}

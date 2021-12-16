@@ -1,0 +1,47 @@
+<mat-sidenav-container  class="sidenav-container">
+  <mat-sidenav color="secondary" #drawer class="sidenav" fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false">
+    <mat-toolbar style="text-align: center;">
+    </mat-toolbar>
+    <mat-nav-list>
+      <a (click)="goToMongo()" mat-list-item routerLink="/dashboard/home" routerLinkActive="active-list-item">
+        <fa-icon [icon]="faCoffee"></fa-icon> <span class="nav-caption">Incêndios America do Sul</span>
+      </a>
+      <a (click)="goToLocal()" mat-list-item routerLink="/dashboard/home" routerLinkActive="active-list-item">
+        <fa-icon [icon]="faBurn"></fa-icon> <span class="nav-caption">Incêndios Brasil</span>
+      </a>
+      <a (click)="goToVizinhanca()" mat-list-item routerLink="/dashboard/home" routerLinkActive="active-list-item">
+        <fa-icon [icon]="faPeopleArrows"></fa-icon> <span class="nav-caption">Vizinhança de Calderdale UK</span>
+      </a>
+      <a (click)="goToMetro()" mat-list-item routerLink="/dashboard/home" routerLinkActive="active-list-item">
+        <fa-icon [icon]="faSubway"></fa-icon> <span class="nav-caption">Linhas de Metrô NY</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="fixed-toolbar mat-elevation-z2">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="spacer"></span>
+      <span flex></span>
+      <button mat-button style="text-transform: uppercase;" >
+        <mat-icon aria-hidden="false" aria-label="home icon">exit_to_app</mat-icon>Sair
+      </button>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div [ngClass]="{'foreground': loading}" style="height: 88vh;">
+      <div class="center" fxLayout="row" fxLayoutAlign="center center">
+        <div fxFlex="100">
+          <mat-spinner class="mx-auto center" *ngIf="loading" [diameter]="50">
+          </mat-spinner>
+        </div>
+      </div>
+      <div [ngClass]="{'background': loading}">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
